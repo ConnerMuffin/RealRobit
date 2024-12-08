@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7yu0x3offic1"]
+
+[ext_resource type="Texture2D" uid="uid://cqmf6dkbl7akb" path="res://Rooms/OfficeLit.png" id="1_rhm1j"]
+[ext_resource type="Script" path="res://Camera2D.gd" id="2_p7ewu"]
+
+[node name="Main" type="Node2D"]
+
+[node name="OfficeLit" type="Sprite2D" parent="."]
+texture = ExtResource("1_rhm1j")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_top = 0
+limit_bottom = 0
+position_smoothing_enabled = true
+script = ExtResource("2_p7ewu")

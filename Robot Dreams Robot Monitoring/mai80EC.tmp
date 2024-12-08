@@ -1,0 +1,223 @@
+[gd_scene load_steps=18 format=3 uid="uid://b7yu0x3offic1"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_gj7e0"]
+[ext_resource type="Texture2D" uid="uid://cqmf6dkbl7akb" path="res://Rooms/OfficeLit.png" id="1_rhm1j"]
+[ext_resource type="Script" path="res://Camera2D.gd" id="2_p7ewu"]
+[ext_resource type="Texture2D" uid="uid://b6enbcpgac7hl" path="res://Rooms/OfficeNotLit.png" id="3_lnuwl"]
+[ext_resource type="Script" path="res://Office.gd" id="3_rqrul"]
+[ext_resource type="Texture2D" uid="uid://du8j3eo4bj4e5" path="res://Rooms/ObersvationRoom.png" id="4_l667g"]
+[ext_resource type="Texture2D" uid="uid://cehhhjchgmxvc" path="res://Assets/Robit.png" id="5_tlinu"]
+[ext_resource type="Texture2D" uid="uid://brjlisxgtshd4" path="res://Rooms/NoCam.png" id="5_uxiqh"]
+[ext_resource type="Texture2D" uid="uid://0s5e4b4oowtl" path="res://Rooms/LoungeRoom.png" id="6_mp7wy"]
+[ext_resource type="Texture2D" uid="uid://c8qpjvsm4ucmi" path="res://Assets/ObersvationWindow.png" id="7_4jiwy"]
+[ext_resource type="Texture2D" uid="uid://duhsr13inddqo" path="res://Rooms/KitchenRoomReal.png" id="7_4m47j"]
+[ext_resource type="PackedScene" uid="uid://cxbd8llf4hnkj" path="res://L_button_green.tscn" id="7_ron1i"]
+[ext_resource type="Texture2D" uid="uid://bniibqmaqw4m1" path="res://Rooms/ObservationRoomLit.png" id="8_5mtim"]
+[ext_resource type="Script" path="res://Flipbar.gd" id="9_kfp0l"]
+[ext_resource type="Texture2D" uid="uid://brimax3or12x1" path="res://Assets/ObservationGlassFull.png" id="9_xtb6w"]
+[ext_resource type="Texture2D" uid="uid://camep320cdri8" path="res://Assets/CameraFlipBar.png" id="10_66ct2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0afir"]
+size = Vector2(88, 9.725)
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("OfficeLit", "OfficeNotLit")]
+script = ExtResource("1_gj7e0")
+OfficeLit = NodePath("Office/OfficeLit")
+OfficeNotLit = NodePath("Office/OfficeNotLit")
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("Flipbar", "cams", "ObservationRoomLit", "ObservationRoomDark", "Lounge", "Kitchen", "Office", "main", "Nocam", "LHall", "RHall")]
+zoom = Vector2(8, 7)
+limit_left = -100
+limit_top = -45
+limit_right = 100
+limit_bottom = 44
+position_smoothing_enabled = true
+script = ExtResource("2_p7ewu")
+Flipbar = NodePath("../Flipbar")
+cams = NodePath("../Cams")
+ObservationRoomLit = NodePath("../Cams/ObservationRoomLit")
+ObservationRoomDark = NodePath("../Cams/ObersvationRoom")
+Lounge = NodePath("../Cams/LoungeRoom")
+Kitchen = NodePath("../Cams/KitchenRoomReal")
+Office = NodePath("../Office")
+main = NodePath("..")
+Nocam = NodePath("../Cams/NoCam")
+LHall = NodePath("../Cams/NoCam")
+RHall = NodePath("../Cams/NoCam")
+
+[node name="Office" type="Node2D" parent="."]
+script = ExtResource("3_rqrul")
+
+[node name="OfficeNotLit" type="Sprite2D" parent="Office"]
+texture = ExtResource("3_lnuwl")
+
+[node name="OfficeLit" type="Sprite2D" parent="Office"]
+texture = ExtResource("1_rhm1j")
+
+[node name="Robit" type="Sprite2D" parent="Office/OfficeLit"]
+visible = false
+position = Vector2(-52, -2)
+texture = ExtResource("5_tlinu")
+
+[node name="LButtonGreen" parent="Office" instance=ExtResource("7_ron1i")]
+
+[node name="Cams" type="Node2D" parent="."]
+
+[node name="ObersvationRoom" type="Sprite2D" parent="Cams"]
+visible = false
+texture = ExtResource("4_l667g")
+
+[node name="ObservedRobot" type="Sprite2D" parent="Cams/ObersvationRoom"]
+position = Vector2(-36, 22)
+texture = ExtResource("5_tlinu")
+
+[node name="ObersvationWindow" type="Sprite2D" parent="Cams/ObersvationRoom"]
+texture = ExtResource("7_4jiwy")
+
+[node name="ObservationRoomLit" type="Sprite2D" parent="Cams"]
+visible = false
+texture = ExtResource("8_5mtim")
+
+[node name="ObservationGlassFull" type="Sprite2D" parent="Cams/ObservationRoomLit"]
+position = Vector2(-33, -1)
+scale = Vector2(1.305, 1.025)
+texture = ExtResource("9_xtb6w")
+
+[node name="LoungeRoom" type="Sprite2D" parent="Cams"]
+visible = false
+texture = ExtResource("6_mp7wy")
+
+[node name="RobotLounge" type="Sprite2D" parent="Cams/LoungeRoom"]
+position = Vector2(8, -7)
+texture = ExtResource("5_tlinu")
+
+[node name="KitchenRoomReal" type="Sprite2D" parent="Cams"]
+visible = false
+texture = ExtResource("7_4m47j")
+
+[node name="KitchenRobot" type="Sprite2D" parent="Cams/KitchenRoomReal"]
+position = Vector2(-93, 26)
+texture = ExtResource("5_tlinu")
+
+[node name="NoCam" type="Sprite2D" parent="Cams"]
+visible = false
+position = Vector2(-1, 0)
+scale = Vector2(1.62, 1)
+texture = ExtResource("5_uxiqh")
+
+[node name="UI" type="Node2D" parent="Cams"]
+scale = Vector2(0.59, 0.59)
+
+[node name="Control" type="Control" parent="Cams/UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 213.559
+offset_top = -25.4237
+offset_right = 253.559
+offset_bottom = 14.5763
+
+[node name="Sprite2D" type="Sprite2D" parent="Cams/UI/Control"]
+position = Vector2(-82.25, -17)
+scale = Vector2(0.410156, 0.479167)
+texture = ExtResource("5_uxiqh")
+
+[node name="Observation Room" type="Button" parent="Cams/UI/Control"]
+layout_mode = 0
+offset_left = -86.0
+offset_top = -25.0
+offset_right = -78.0
+offset_bottom = -17.0
+action_mode = 0
+
+[node name="Kitchen" type="Button" parent="Cams/UI/Control"]
+layout_mode = 0
+offset_left = -97.0
+offset_top = -15.0
+offset_right = -89.0
+offset_bottom = -7.0
+action_mode = 0
+
+[node name="Lounge" type="Button" parent="Cams/UI/Control"]
+layout_mode = 0
+offset_left = -97.0
+offset_top = -25.0
+offset_right = -89.0
+offset_bottom = -17.0
+action_mode = 0
+
+[node name="HallwayLeft" type="Button" parent="Cams/UI/Control"]
+layout_mode = 0
+offset_left = -76.0
+offset_top = -5.0
+offset_right = -68.0
+offset_bottom = 3.0
+action_mode = 0
+
+[node name="HallwayRight" type="Button" parent="Cams/UI/Control"]
+layout_mode = 0
+offset_left = -97.0
+offset_top = -5.0
+offset_right = -89.0
+offset_bottom = 3.0
+action_mode = 0
+
+[node name="Nocam3" type="Button" parent="Cams/UI/Control"]
+layout_mode = 0
+offset_left = -76.0
+offset_top = -14.0
+offset_right = -68.0
+offset_bottom = -6.0
+
+[node name="Nocam2" type="Button" parent="Cams/UI/Control"]
+layout_mode = 0
+offset_left = -67.0
+offset_top = -5.0
+offset_right = -59.0
+offset_bottom = 3.0
+
+[node name="Nocam" type="Button" parent="Cams/UI/Control"]
+layout_mode = 0
+offset_left = -106.0
+offset_top = -5.0
+offset_right = -98.0
+offset_bottom = 3.0
+
+[node name="Text" type="Node2D" parent="Cams/UI/Control"]
+position = Vector2(-242, 64)
+scale = Vector2(0.4, 0.4)
+
+[node name="Label" type="Label" parent="Cams/UI/Control/Text"]
+offset_left = 385.0
+offset_top = -175.0
+offset_right = 415.0
+offset_bottom = -152.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+text = "You"
+
+[node name="Label2" type="Label" parent="Cams/UI/Control/Text"]
+offset_left = 335.0
+offset_top = -255.0
+offset_right = 461.0
+offset_bottom = -232.0
+text = "Camera Buttons"
+
+[node name="Flipbar" type="Area2D" parent="."]
+position = Vector2(0, -1.725)
+script = ExtResource("9_kfp0l")
+
+[node name="CameraFlipBar" type="Sprite2D" parent="Flipbar"]
+texture = ExtResource("10_66ct2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flipbar"]
+position = Vector2(0, 44.8625)
+shape = SubResource("RectangleShape2D_0afir")
+
+[connection signal="pressed" from="Cams/UI/Control/Observation Room" to="Camera2D" method="_on_observation_room_pressed"]
+[connection signal="pressed" from="Cams/UI/Control/Kitchen" to="Camera2D" method="_on_kitchen_pressed"]
+[connection signal="pressed" from="Cams/UI/Control/Lounge" to="Camera2D" method="_on_lounge_pressed"]
+[connection signal="pressed" from="Cams/UI/Control/HallwayLeft" to="Camera2D" method="_on_hallway_left_pressed"]
+[connection signal="pressed" from="Cams/UI/Control/HallwayRight" to="Camera2D" method="_on_hallway_right_pressed"]
+[connection signal="pressed" from="Cams/UI/Control/Nocam3" to="Camera2D" method="_on_nocam_3_pressed"]
+[connection signal="pressed" from="Cams/UI/Control/Nocam2" to="Camera2D" method="_on_nocam_2_pressed"]
+[connection signal="pressed" from="Cams/UI/Control/Nocam" to="Camera2D" method="_on_nocam_pressed"]
+[connection signal="mouse_entered" from="Flipbar" to="Flipbar" method="_on_mouse_entered"]

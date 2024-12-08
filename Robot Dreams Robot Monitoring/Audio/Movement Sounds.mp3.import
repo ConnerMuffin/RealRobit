@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://hnjhxdtal31t"
+path="res://.godot/imported/Movement Sounds.mp3-78b3a3f18e8128730ffbed7fb885f353.mp3str"
+
+[deps]
+
+source_file="res://Audio/Movement Sounds.mp3"
+dest_files=["res://.godot/imported/Movement Sounds.mp3-78b3a3f18e8128730ffbed7fb885f353.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

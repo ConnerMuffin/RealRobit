@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=3 uid="uid://biele3qx3fpb4"]
+
+[ext_resource type="Script" path="res://Scripts/Start.gd" id="1_opb0s"]
+[ext_resource type="Texture2D" uid="uid://bda8kvdtpge3u" path="res://Assets/CloseRobitJumpscare.png" id="2_7k4vx"]
+[ext_resource type="Texture2D" uid="uid://cehhhjchgmxvc" path="res://Assets/Robit.png" id="3_x00k6"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(29.0585, 17.1356)
+color = Color(0, 0.574784, 0.576532, 1)
+
+[node name="Button" type="Button" parent="CanvasLayer" node_paths=PackedStringArray("text_edit", "try_again")]
+offset_left = 294.0
+offset_top = 446.0
+offset_right = 813.0
+offset_bottom = 537.0
+theme_override_font_sizes/font_size = 60
+text = "Start"
+script = ExtResource("1_opb0s")
+text_edit = NodePath("../LineEdit")
+try_again = NodePath("../TryAgain")
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer"]
+offset_left = 89.0
+offset_top = 262.0
+offset_right = 1042.0
+offset_bottom = 353.0
+theme_override_font_sizes/font_size = 60
+placeholder_text = "Please Input a number 1-20 here"
+expand_to_text_length = true
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 297.0
+offset_top = 78.0
+offset_right = 808.0
+offset_bottom = 161.0
+theme_override_font_sizes/font_size = 60
+text = "Robot Monitoring"
+
+[node name="TryAgain" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 299.0
+offset_top = 572.0
+offset_right = 824.0
+offset_bottom = 627.0
+theme_override_font_sizes/font_size = 40
+text = "Please Input a number 1-20"
+
+[node name="Label3" type="Label" parent="CanvasLayer"]
+offset_left = 264.0
+offset_top = 383.0
+offset_right = 887.0
+offset_bottom = 411.0
+theme_override_font_sizes/font_size = 20
+text = "Entering Nothing, Letters, or 0 will result in a non-moving enemy"
+
+[node name="CloseRobitJumpscare2" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(107, 513)
+scale = Vector2(2.80758, 2.80758)
+texture = ExtResource("2_7k4vx")
+
+[node name="Robit" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(976, 500)
+scale = Vector2(9.76, 9.76)
+texture = ExtResource("3_x00k6")
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+offset_left = 301.0
+offset_top = 194.0
+offset_right = 833.0
+offset_bottom = 236.0
+theme_override_font_sizes/font_size = 30
+text = "Easy (1-5) Medium (6-13) Hard(14-20)"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_pressed"]

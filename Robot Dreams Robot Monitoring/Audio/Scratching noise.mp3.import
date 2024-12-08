@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ccnuh6j32x163"
+path="res://.godot/imported/Scratching noise.mp3-a28fa99e3ea0f0a3d0c9725ad4144b84.mp3str"
+
+[deps]
+
+source_file="res://Audio/Scratching noise.mp3"
+dest_files=["res://.godot/imported/Scratching noise.mp3-a28fa99e3ea0f0a3d0c9725ad4144b84.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

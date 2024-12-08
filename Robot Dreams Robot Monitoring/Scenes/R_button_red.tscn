@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxsyw12iqd442"]
+
+[ext_resource type="Script" path="res://Scripts/RButtonRed.gd" id="1_u3ywy"]
+[ext_resource type="Texture2D" uid="uid://cjjmf5k5sti4h" path="res://Assets/RedDoorButton.png" id="2_v4huw"]
+
+[node name="RButtonRed" type="Node2D"]
+scale = Vector2(0.05, 0.05)
+script = ExtResource("1_u3ywy")
+
+[node name="Button" type="Button" parent="."]
+offset_right = 160.0
+offset_bottom = 160.0
+icon = ExtResource("2_v4huw")
+expand_icon = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

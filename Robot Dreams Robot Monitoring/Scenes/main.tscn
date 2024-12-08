@@ -1,0 +1,627 @@
+[gd_scene load_steps=54 format=3 uid="uid://b7yu0x3offic1"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_60tux"]
+[ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="2_2f1v8"]
+[ext_resource type="Script" path="res://Scripts/Office.gd" id="3_i7sth"]
+[ext_resource type="Texture2D" uid="uid://b6enbcpgac7hl" path="res://Rooms/OfficeNotLit.png" id="4_2hq67"]
+[ext_resource type="Texture2D" uid="uid://cqmf6dkbl7akb" path="res://Rooms/OfficeLit.png" id="5_ulk2g"]
+[ext_resource type="Texture2D" uid="uid://cwc777qtwlkko" path="res://Assets/RobitPeakingAroundDoorLeft.png" id="6_28mk6"]
+[ext_resource type="Texture2D" uid="uid://br0jby27ybbk4" path="res://Assets/RobitPeakingAroundDoorRight.png" id="7_l8apw"]
+[ext_resource type="PackedScene" uid="uid://cxbd8llf4hnkj" path="res://Scenes/L_button_green.tscn" id="7_rwjc8"]
+[ext_resource type="PackedScene" uid="uid://crmwdfa6kx7u4" path="res://Scenes/R_button_green.tscn" id="8_vdo07"]
+[ext_resource type="Texture2D" uid="uid://bemkrgiemrr1k" path="res://Assets/OfficeLeftDoor.png" id="9_01ink"]
+[ext_resource type="Texture2D" uid="uid://0oukqim7c3hp" path="res://Assets/OfficeRightDoor.png" id="10_wjoau"]
+[ext_resource type="Texture2D" uid="uid://op1qch3abrox" path="res://Assets/ContainmentGood.png" id="11_ljjji"]
+[ext_resource type="Texture2D" uid="uid://du8j3eo4bj4e5" path="res://Rooms/ObersvationRoom.png" id="12_dqmi4"]
+[ext_resource type="Texture2D" uid="uid://c8qpjvsm4ucmi" path="res://Assets/ObersvationWindow.png" id="13_8vihv"]
+[ext_resource type="Texture2D" uid="uid://cvjif0gl2xtk2" path="res://Assets/RobotAfterMurder.png" id="14_0ixq1"]
+[ext_resource type="Texture2D" uid="uid://bniibqmaqw4m1" path="res://Rooms/ObservationRoomLit.png" id="14_ir7uo"]
+[ext_resource type="Texture2D" uid="uid://brimax3or12x1" path="res://Assets/ObservationGlassFull.png" id="15_xdt15"]
+[ext_resource type="Texture2D" uid="uid://0s5e4b4oowtl" path="res://Rooms/LoungeRoom.png" id="16_a3g2w"]
+[ext_resource type="Texture2D" uid="uid://duhsr13inddqo" path="res://Rooms/KitchenRoomReal.png" id="17_k4jov"]
+[ext_resource type="Texture2D" uid="uid://ca7o5uh6i8k7u" path="res://Assets/RobotBeforeMurder.png" id="17_oquq0"]
+[ext_resource type="Texture2D" uid="uid://bua36rux14oq5" path="res://Rooms/NoCamReal.png" id="18_n6gtp"]
+[ext_resource type="Texture2D" uid="uid://dq7kcbbgftm7c" path="res://Rooms/RHall.png" id="19_vy4yo"]
+[ext_resource type="Texture2D" uid="uid://b1k3byis6i6do" path="res://Assets/CloseRobit.png" id="20_1agwj"]
+[ext_resource type="Texture2D" uid="uid://byuj2wsmv72dq" path="res://Rooms/LHall.png" id="20_8v20c"]
+[ext_resource type="Texture2D" uid="uid://lm7dejkwrvgt" path="res://Assets/RobitEyes.png" id="21_33a37"]
+[ext_resource type="Texture2D" uid="uid://brjlisxgtshd4" path="res://Rooms/NoCam.png" id="22_c4doe"]
+[ext_resource type="Script" path="res://Scripts/Flipbar.gd" id="23_84hxc"]
+[ext_resource type="Texture2D" uid="uid://camep320cdri8" path="res://Assets/CameraFlipBar.png" id="24_3e4il"]
+[ext_resource type="Texture2D" uid="uid://drxt8hkovn43k" path="res://Assets/LHallRobit.png" id="24_tnddu"]
+[ext_resource type="Script" path="res://Scripts/TryAgain.gd" id="25_dp4vl"]
+[ext_resource type="Texture2D" uid="uid://bda8kvdtpge3u" path="res://Assets/CloseRobitJumpscare.png" id="30_h7xdo"]
+[ext_resource type="Script" path="res://Scenes/GameOver UI.gd" id="31_htwvy"]
+[ext_resource type="AudioStream" uid="uid://344clfub1cfx" path="res://Audio/RightOpenDoor.mp3" id="31_qq628"]
+[ext_resource type="AudioStream" uid="uid://dyotnd1w7ch3h" path="res://Audio/LeftOpenDoor.mp3" id="32_gomm8"]
+[ext_resource type="AudioStream" uid="uid://hpncg40nyiti" path="res://Audio/RightCloseDoor.mp3" id="33_4cc6t"]
+[ext_resource type="Script" path="res://Scenes/GoAgain.gd" id="33_0333x"]
+[ext_resource type="AudioStream" uid="uid://dt6l12721w25l" path="res://Audio/LeftCloseDoor.mp3" id="34_p3vvf"]
+[ext_resource type="AudioStream" uid="uid://vg58yv1m60mt" path="res://Audio/ConnerThePhoneGuy.mp3" id="35_gqsa3"]
+[ext_resource type="AudioStream" uid="uid://biqhujwt4vmme" path="res://Audio/Death.mp3" id="36_i4368"]
+[ext_resource type="AudioStream" uid="uid://cgm1pn2pavvbv" path="res://Audio/Lockdown.mp3" id="36_srldx"]
+[ext_resource type="AudioStream" uid="uid://cb1qieff78310" path="res://Audio/Flashbeacon.mp3" id="37_e7aoc"]
+[ext_resource type="AudioStream" uid="uid://hjvcpijmp5ha" path="res://Audio/CameraSwitch.mp3" id="38_mm4ca"]
+[ext_resource type="AudioStream" uid="uid://dnbgjlkqf2b4p" path="res://Audio/glass-shatter.mp3" id="39_8v5oq"]
+[ext_resource type="AudioStream" uid="uid://bl22jb8vfb6s7" path="res://Audio/PowerDown.mp3" id="40_hfl3c"]
+[ext_resource type="AudioStream" uid="uid://hnjhxdtal31t" path="res://Audio/Movement Sounds.mp3" id="41_2uvq8"]
+[ext_resource type="AudioStream" uid="uid://c2gwks7vch5i5" path="res://Audio/MonitorSounds.mp3" id="42_1rbgn"]
+[ext_resource type="AudioStream" uid="uid://ccnuh6j32x163" path="res://Audio/Scratching noise.mp3" id="43_dehkb"]
+[ext_resource type="AudioStream" uid="uid://bwkj7ligy3adm" path="res://Audio/hooray-36461.mp3" id="47_b2tvo"]
+[ext_resource type="Script" path="res://Scripts/RobitDifficulty.gd" id="48_etsml"]
+
+[sub_resource type="Animation" id="Animation_10xt8"]
+resource_name = "FlashBeacon"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2ptsi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jmcyc"]
+_data = {
+"FlashBeacon": SubResource("Animation_10xt8"),
+"RESET": SubResource("Animation_2ptsi")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0afir"]
+size = Vector2(88, 9.725)
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("OfficeLit", "OfficeNotLit", "flash", "MovementTimer", "Lounge", "LDoor", "RDoor", "LHall", "RHall", "Kitchen", "Observe", "NoCam", "Office", "GameOverScreen", "UI", "Phone", "Death", "GlassShatter", "Powerdown", "Movement1", "Movement2", "Monitor", "Flashbeacon", "Jumpscare", "PowerDown2", "DeathTimer", "Cutscene", "Lockdown", "FlipBar", "Skip", "IntroTimer", "PowerLabel", "EnergyInterval", "TimeLabel", "Live", "FlashTutorial", "Observation", "cams", "WinScreen", "Yippie")]
+script = ExtResource("1_60tux")
+OfficeLit = NodePath("Office/OfficeLit")
+OfficeNotLit = NodePath("Office/OfficeNotLit")
+flash = NodePath("Office/OfficeLit/FlashBeacon")
+MovementTimer = NodePath("MovementOpportunites")
+Lounge = NodePath("Cams/LoungeRoom/RobotLounge")
+LDoor = NodePath("Office/OfficeLit/LRobit")
+RDoor = NodePath("Office/OfficeLit/RRobit")
+LHall = NodePath("Cams/LHall/LeftHallRobit")
+RHall = NodePath("Cams/RHall/RightHallRobit")
+Kitchen = NodePath("Cams/KitchenRoomReal/KitchenRobot")
+Observe = NodePath("Cams/ObersvationRoom/ObserveEscapedRobit")
+NoCam = NodePath("Cams/LHall/RobitEyesNoCam")
+Office = NodePath("Office")
+GameOverScreen = NodePath("GameOver UI")
+UI = NodePath("Cams/UI")
+Phone = NodePath("ConnerPhoneGuy")
+Death = NodePath("Death")
+GlassShatter = NodePath("GlassShatter")
+Powerdown = NodePath("Powerdown1")
+Movement1 = NodePath("Movement1")
+Movement2 = NodePath("Movement2")
+Monitor = NodePath("MonitorSounds")
+Flashbeacon = NodePath("FlashBeacon")
+Jumpscare = NodePath("CloseRobitJumpscare")
+PowerDown2 = NodePath("PowerDown2")
+DeathTimer = NodePath("DeathTimer")
+Cutscene = NodePath("CutScene?")
+Lockdown = NodePath("Lockdown")
+FlipBar = NodePath("Flipbar")
+Skip = NodePath("Skip/Skip")
+IntroTimer = NodePath("IntroTimer")
+PowerLabel = NodePath("Skip/PowerLabel")
+EnergyInterval = NodePath("EnergyDepletion")
+TimeLabel = NodePath("Skip/Time")
+Live = NodePath("Live")
+FlashTutorial = NodePath("Skip/FlashTut")
+Observation = NodePath("Cams/ObersvationRoom")
+cams = NodePath("Cams/UI")
+WinScreen = NodePath("GameWin UI")
+Yippie = NodePath("Hurray")
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("Flipbar", "cams", "ObservationRoomLit", "ObservationRoomDark", "Lounge", "Kitchen", "Office", "main", "Nocam", "LHall", "RHall", "UI", "CamSwitch")]
+zoom = Vector2(8, 7)
+limit_left = -100
+limit_top = -45
+limit_right = 100
+limit_bottom = 44
+position_smoothing_enabled = true
+script = ExtResource("2_2f1v8")
+Flipbar = NodePath("../Flipbar")
+cams = NodePath("../Cams")
+ObservationRoomLit = NodePath("../Cams/ObservationRoomLit")
+ObservationRoomDark = NodePath("../Cams/ObersvationRoom")
+Lounge = NodePath("../Cams/LoungeRoom")
+Kitchen = NodePath("../Cams/KitchenRoomReal")
+Office = NodePath("../Office")
+main = NodePath("..")
+Nocam = NodePath("../Cams/NoCamReal")
+LHall = NodePath("../Cams/LHall")
+RHall = NodePath("../Cams/RHall")
+UI = NodePath("../Cams/UI")
+CamSwitch = NodePath("../CameraSwitch")
+
+[node name="Office" type="Node2D" parent="." node_paths=PackedStringArray("LeftDoor", "RightDoor", "GoodContain")]
+script = ExtResource("3_i7sth")
+LeftDoor = NodePath("OfficeLeftDoor")
+RightDoor = NodePath("OfficeRightDoor")
+GoodContain = NodePath("ContainmentGood")
+
+[node name="OfficeNotLit" type="Sprite2D" parent="Office"]
+texture = ExtResource("4_2hq67")
+
+[node name="OfficeLit" type="Sprite2D" parent="Office"]
+texture = ExtResource("5_ulk2g")
+
+[node name="LRobit" type="Sprite2D" parent="Office/OfficeLit"]
+visible = false
+position = Vector2(-56, 18)
+texture = ExtResource("6_28mk6")
+
+[node name="RRobit" type="Sprite2D" parent="Office/OfficeLit"]
+visible = false
+position = Vector2(41, 17)
+texture = ExtResource("7_l8apw")
+
+[node name="FlashBeacon" type="AnimationPlayer" parent="Office/OfficeLit"]
+libraries = {
+"": SubResource("AnimationLibrary_jmcyc")
+}
+
+[node name="LButtonGreen" parent="Office" instance=ExtResource("7_rwjc8")]
+position = Vector2(-65, -8)
+
+[node name="RButtonGreen" parent="Office" instance=ExtResource("8_vdo07")]
+position = Vector2(57, -7)
+
+[node name="OfficeLeftDoor" type="Sprite2D" parent="Office"]
+visible = false
+texture = ExtResource("9_01ink")
+
+[node name="OfficeRightDoor" type="Sprite2D" parent="Office"]
+visible = false
+texture = ExtResource("10_wjoau")
+
+[node name="ContainmentGood" type="Sprite2D" parent="Office"]
+texture = ExtResource("11_ljjji")
+
+[node name="Cams" type="Node2D" parent="."]
+
+[node name="ObersvationRoom" type="Sprite2D" parent="Cams"]
+visible = false
+texture = ExtResource("12_dqmi4")
+
+[node name="ObserveEscapedRobit" type="Sprite2D" parent="Cams/ObersvationRoom"]
+visible = false
+position = Vector2(50, -17)
+texture = ExtResource("14_0ixq1")
+
+[node name="ObersvationWindow" type="Sprite2D" parent="Cams/ObersvationRoom"]
+texture = ExtResource("13_8vihv")
+
+[node name="ObservationRoomLit" type="Sprite2D" parent="Cams"]
+visible = false
+texture = ExtResource("14_ir7uo")
+
+[node name="ObservedRobot" type="Sprite2D" parent="Cams/ObservationRoomLit"]
+position = Vector2(50, -17)
+texture = ExtResource("17_oquq0")
+
+[node name="ObservationGlassFull" type="Sprite2D" parent="Cams/ObservationRoomLit"]
+position = Vector2(-33, -1)
+scale = Vector2(1.305, 1.025)
+texture = ExtResource("15_xdt15")
+
+[node name="LoungeRoom" type="Sprite2D" parent="Cams"]
+visible = false
+texture = ExtResource("16_a3g2w")
+
+[node name="RobotLounge" type="Sprite2D" parent="Cams/LoungeRoom"]
+visible = false
+position = Vector2(82, 18)
+texture = ExtResource("20_1agwj")
+
+[node name="KitchenRoomReal" type="Sprite2D" parent="Cams"]
+visible = false
+texture = ExtResource("17_k4jov")
+
+[node name="KitchenRobot" type="Sprite2D" parent="Cams/KitchenRoomReal"]
+visible = false
+position = Vector2(-16, 12)
+scale = Vector2(0.945, 0.945)
+texture = ExtResource("6_28mk6")
+
+[node name="NoCamReal" type="Sprite2D" parent="Cams"]
+visible = false
+texture = ExtResource("18_n6gtp")
+
+[node name="RHall" type="Sprite2D" parent="Cams"]
+visible = false
+texture = ExtResource("19_vy4yo")
+
+[node name="RightHallRobit" type="Sprite2D" parent="Cams/RHall"]
+visible = false
+position = Vector2(-43, 4)
+texture = ExtResource("24_tnddu")
+
+[node name="LHall" type="Sprite2D" parent="Cams"]
+visible = false
+texture = ExtResource("20_8v20c")
+
+[node name="LeftHallRobit" type="Sprite2D" parent="Cams/LHall"]
+visible = false
+position = Vector2(-82, 4)
+texture = ExtResource("24_tnddu")
+
+[node name="RobitEyesNoCam" type="Sprite2D" parent="Cams/LHall"]
+visible = false
+position = Vector2(54, -10)
+texture = ExtResource("21_33a37")
+
+[node name="UI" type="CanvasLayer" parent="Cams"]
+offset = Vector2(-414.325, -260.315)
+scale = Vector2(7.245, 7.245)
+transform = Transform2D(7.245, 0, 0, 7.245, -414.325, -260.315)
+
+[node name="UI" type="Node2D" parent="Cams/UI"]
+position = Vector2(118, 86)
+scale = Vector2(0.59, 0.59)
+
+[node name="Control" type="Control" parent="Cams/UI/UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 213.559
+offset_top = -25.4237
+offset_right = 253.559
+offset_bottom = 14.5763
+
+[node name="Sprite2D" type="Sprite2D" parent="Cams/UI/UI/Control"]
+position = Vector2(-82.25, -17)
+scale = Vector2(0.410156, 0.479167)
+texture = ExtResource("22_c4doe")
+
+[node name="Observation Room" type="Button" parent="Cams/UI/UI/Control"]
+layout_mode = 0
+offset_left = -86.0
+offset_top = -25.0
+offset_right = -78.0
+offset_bottom = -17.0
+action_mode = 0
+
+[node name="Kitchen" type="Button" parent="Cams/UI/UI/Control"]
+layout_mode = 0
+offset_left = -97.0
+offset_top = -15.0
+offset_right = -89.0
+offset_bottom = -7.0
+action_mode = 0
+
+[node name="Lounge" type="Button" parent="Cams/UI/UI/Control"]
+layout_mode = 0
+offset_left = -97.0
+offset_top = -25.0
+offset_right = -89.0
+offset_bottom = -17.0
+action_mode = 0
+
+[node name="HallwayLeft" type="Button" parent="Cams/UI/UI/Control"]
+layout_mode = 0
+offset_left = -96.6102
+offset_top = -3.38983
+offset_right = -88.6102
+offset_bottom = 4.61017
+action_mode = 0
+
+[node name="HallwayRight" type="Button" parent="Cams/UI/UI/Control"]
+layout_mode = 0
+offset_left = -74.5763
+offset_top = -3.38983
+offset_right = -66.5763
+offset_bottom = 4.61017
+action_mode = 0
+
+[node name="Nocam3" type="Button" parent="Cams/UI/UI/Control"]
+layout_mode = 0
+offset_left = -79.661
+offset_top = -13.5593
+offset_right = -71.661
+offset_bottom = -5.55933
+
+[node name="Nocam2" type="Button" parent="Cams/UI/UI/Control"]
+layout_mode = 0
+offset_left = -71.1865
+offset_top = -13.5593
+offset_right = -63.1865
+offset_bottom = -5.55932
+
+[node name="Nocam" type="Button" parent="Cams/UI/UI/Control"]
+layout_mode = 0
+offset_left = -106.78
+offset_top = -10.1695
+offset_right = -98.7797
+offset_bottom = -2.16949
+
+[node name="Text" type="Node2D" parent="Cams/UI/UI/Control"]
+position = Vector2(-242, 64)
+scale = Vector2(0.4, 0.4)
+
+[node name="Label" type="Label" parent="Cams/UI/UI/Control/Text"]
+offset_left = 385.0
+offset_top = -175.0
+offset_right = 415.0
+offset_bottom = -152.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+text = "You"
+
+[node name="Label2" type="Label" parent="Cams/UI/UI/Control/Text"]
+offset_left = 335.0
+offset_top = -255.0
+offset_right = 461.0
+offset_bottom = -232.0
+text = "Camera Buttons"
+
+[node name="Skip" type="CanvasLayer" parent="."]
+
+[node name="Skip" type="Button" parent="Skip"]
+offset_left = 469.0
+offset_top = 72.0
+offset_right = 680.0
+offset_bottom = 149.0
+theme_override_font_sizes/font_size = 50
+text = "Skip Call"
+
+[node name="PowerLabel" type="Label" parent="Skip"]
+offset_left = 892.0
+offset_top = 2.0
+offset_right = 1151.0
+offset_bottom = 60.0
+theme_override_font_sizes/font_size = 42
+text = "Power: 100"
+
+[node name="Time" type="Label" parent="Skip"]
+visible = false
+offset_left = 541.0
+offset_top = 2.0
+offset_right = 621.0
+offset_bottom = 57.0
+theme_override_font_sizes/font_size = 40
+text = "04:30"
+
+[node name="FlashTut" type="Label" parent="Skip"]
+visible = false
+offset_left = 258.0
+offset_top = 587.0
+offset_right = 905.0
+offset_bottom = 642.0
+theme_override_font_sizes/font_size = 40
+text = "Press \"Space\" to use Flash Beacon"
+
+[node name="Flipbar" type="Area2D" parent="."]
+position = Vector2(0, -1.725)
+script = ExtResource("23_84hxc")
+
+[node name="CameraFlipBar" type="Sprite2D" parent="Flipbar"]
+texture = ExtResource("24_3e4il")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flipbar"]
+position = Vector2(0, 44.8625)
+shape = SubResource("RectangleShape2D_0afir")
+
+[node name="CloseRobitJumpscare" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(40, 1)
+texture = ExtResource("30_h7xdo")
+
+[node name="GameOver UI" type="CanvasLayer" parent="." node_paths=PackedStringArray("UI")]
+process_mode = 3
+visible = false
+script = ExtResource("31_htwvy")
+UI = NodePath("../Cams/UI")
+
+[node name="GameOver UI" type="Node2D" parent="GameOver UI"]
+process_mode = 2
+position = Vector2(576, 317)
+scale = Vector2(0.705, 0.705)
+
+[node name="Control" type="Control" parent="GameOver UI/GameOver UI"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="GameOver UI/GameOver UI/Control"]
+process_mode = 2
+layout_mode = 0
+offset_left = -1000.0
+offset_top = -480.0
+offset_right = 1000.0
+offset_bottom = 480.0
+color = Color(0.344487, 0, 0.0330873, 1)
+
+[node name="Button" type="Button" parent="GameOver UI/GameOver UI/Control"]
+process_mode = 2
+layout_mode = 0
+offset_left = -260.0
+offset_top = 130.0
+offset_right = 244.0
+offset_bottom = 275.0
+theme_override_font_sizes/font_size = 100
+text = "Try Again?"
+script = ExtResource("25_dp4vl")
+
+[node name="Label" type="Label" parent="GameOver UI/GameOver UI/Control"]
+process_mode = 2
+layout_mode = 0
+offset_left = -220.0
+offset_top = -300.0
+offset_right = 238.0
+offset_bottom = -163.0
+theme_override_font_sizes/font_size = 100
+text = "You Died!"
+
+[node name="GameWin UI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="GameWin UI"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(28.96, 16.32)
+color = Color(2.99614e-06, 0.526791, 1.05888e-06, 1)
+
+[node name="Label" type="Label" parent="GameWin UI"]
+offset_left = 442.0
+offset_top = 149.0
+offset_right = 719.0
+offset_bottom = 232.0
+theme_override_font_sizes/font_size = 60
+text = "Congrats!"
+
+[node name="Button" type="Button" parent="GameWin UI"]
+process_mode = 2
+offset_left = 433.0
+offset_top = 340.0
+offset_right = 723.0
+offset_bottom = 431.0
+theme_override_font_sizes/font_size = 60
+text = "Go again?"
+script = ExtResource("33_0333x")
+
+[node name="RightOpen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("31_qq628")
+volume_db = -17.0
+
+[node name="LeftOpen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("32_gomm8")
+volume_db = -17.0
+
+[node name="RightClose" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("33_4cc6t")
+volume_db = -20.0
+
+[node name="LeftClose" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("34_p3vvf")
+volume_db = -20.0
+
+[node name="Lockdown" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("36_srldx")
+volume_db = -10.0
+
+[node name="ConnerPhoneGuy" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("35_gqsa3")
+volume_db = -25.0
+autoplay = true
+
+[node name="Death" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("36_i4368")
+volume_db = -10.0
+
+[node name="FlashBeacon" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("37_e7aoc")
+volume_db = -20.0
+
+[node name="CameraSwitch" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("38_mm4ca")
+volume_db = -25.0
+
+[node name="GlassShatter" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("39_8v5oq")
+volume_db = -25.0
+
+[node name="PowerDown2" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("40_hfl3c")
+volume_db = -15.0
+pitch_scale = 0.75
+
+[node name="Powerdown1" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("40_hfl3c")
+volume_db = -15.0
+
+[node name="Movement1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("41_2uvq8")
+volume_db = -25.0
+
+[node name="MonitorSounds" type="AudioStreamPlayer" parent="."]
+process_mode = 1
+stream = ExtResource("42_1rbgn")
+volume_db = -22.0
+autoplay = true
+
+[node name="Movement2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("43_dehkb")
+volume_db = -25.0
+
+[node name="Hurray" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("47_b2tvo")
+volume_db = -15.0
+
+[node name="DeathTimer" type="Timer" parent="."]
+process_mode = 3
+wait_time = 3.0
+one_shot = true
+
+[node name="IntroTimer" type="Timer" parent="."]
+wait_time = 98.0
+one_shot = true
+autostart = true
+
+[node name="MovementOpportunites" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="CutScene?" type="Timer" parent="."]
+process_mode = 3
+wait_time = 8.0
+one_shot = true
+
+[node name="Live" type="Timer" parent="."]
+
+[node name="EnergyDepletion" type="Timer" parent="."]
+
+[node name="RobitDifficulty" type="Node2D" parent="."]
+position = Vector2(433, 340)
+script = ExtResource("48_etsml")
+
+[node name="FlashCoolDown" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="pressed" from="Cams/UI/UI/Control/Observation Room" to="Camera2D" method="_on_observation_room_pressed"]
+[connection signal="pressed" from="Cams/UI/UI/Control/Kitchen" to="Camera2D" method="_on_kitchen_pressed"]
+[connection signal="pressed" from="Cams/UI/UI/Control/Lounge" to="Camera2D" method="_on_lounge_pressed"]
+[connection signal="pressed" from="Cams/UI/UI/Control/HallwayLeft" to="Camera2D" method="_on_hallway_left_pressed"]
+[connection signal="pressed" from="Cams/UI/UI/Control/HallwayRight" to="Camera2D" method="_on_hallway_right_pressed"]
+[connection signal="pressed" from="Cams/UI/UI/Control/Nocam3" to="Camera2D" method="_on_nocam_3_pressed"]
+[connection signal="pressed" from="Cams/UI/UI/Control/Nocam2" to="Camera2D" method="_on_nocam_2_pressed"]
+[connection signal="pressed" from="Cams/UI/UI/Control/Nocam" to="Camera2D" method="_on_nocam_pressed"]
+[connection signal="pressed" from="Skip/Skip" to="." method="_on_skip_pressed"]
+[connection signal="mouse_entered" from="Flipbar" to="Flipbar" method="_on_mouse_entered"]
+[connection signal="pressed" from="GameOver UI/GameOver UI/Control/Button" to="GameOver UI/GameOver UI/Control/Button" method="_on_pressed"]
+[connection signal="pressed" from="GameWin UI/Button" to="GameWin UI/Button" method="_on_pressed"]
+[connection signal="timeout" from="DeathTimer" to="GameOver UI" method="_on_death_timer_timeout"]
+[connection signal="timeout" from="IntroTimer" to="." method="_on_intro_timer_timeout"]
+[connection signal="timeout" from="IntroTimer" to="Camera2D" method="_on_intro_timer_timeout"]
+[connection signal="timeout" from="IntroTimer" to="Office" method="_on_intro_timer_timeout"]
+[connection signal="timeout" from="MovementOpportunites" to="." method="_on_movement_opportunites_timeout"]
+[connection signal="timeout" from="CutScene?" to="." method="_on_cut_scene_timeout"]
+[connection signal="timeout" from="CutScene?" to="Camera2D" method="_on_cut_scene_timeout"]
+[connection signal="timeout" from="Live" to="." method="_on_live_timeout"]
+[connection signal="timeout" from="EnergyDepletion" to="." method="_on_energy_depletion_timeout"]
