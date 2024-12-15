@@ -27,6 +27,11 @@ func _process(delta):
 	else:
 		cams.visible = false
 		UI.visible = false
+	
+	if main.NoPower == true:
+		cams.visible = false
+		currentCam.visible = false
+		UI.visible = false
 		
 func _on_observation_room_pressed():
 	if !main.is_intro:

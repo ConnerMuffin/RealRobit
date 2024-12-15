@@ -42,6 +42,8 @@ extends Node2D
 @export var WinScreen : CanvasLayer
 @export var Yippie : AudioStreamPlayer
 @onready var flash_cool_down = $FlashCoolDown
+@onready var camera_2d: Camera2D = $Camera2D
+
 
 var Power = 100.0
 var Difficulty = RobitDifficulty.Difficulty
@@ -63,7 +65,7 @@ func _process(delta):
 		flash.play("FlashBeacon")
 		Flashbeacon.play()
 		Power -= 2
-		flash_cool_down.start()
+		# flash_cool_down.start()
 		# remove some amount of either power or charges for flashing
 	if Phone.playing:
 		Skip.visible = true
@@ -81,13 +83,15 @@ func _process(delta):
 		RDoorPower = 0
 	
 	if FlipBar.in_cams == true:
-		CameraPower = 0.2
+		CameraPower = 0.15
 	else:
 		CameraPower = 0
 	
-	PowerLabel.text = ("Power: " + str(Power) + "%")
+	PowerLabel.text = ("Power: " + str(round(Power)) + "%")
 	
 	if Power < 1:
+		cams.visible = false
+		UI.visible = false
 		Power = 0
 		NoPower = true
 		EnergyInterval.stop()
@@ -95,6 +99,7 @@ func _process(delta):
 	if NoPower == true and PowerOff == false:
 		Powerdown.play()
 		PowerOff = true
+		
 	
 	if total_time_secs < 0:
 		Yippie.play()
@@ -218,7 +223,7 @@ func _on_skip_pressed():
 	Skip.visible = false
 
 func _on_energy_depletion_timeout():
-	Power -= (0.2 + CameraPower + LDoorPower + RDoorPower)
+	Power -= (0.15 + CameraPower + LDoorPower + RDoorPower)
 
 func _on_live_timeout():
 	total_time_secs -= 1
